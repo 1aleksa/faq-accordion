@@ -1,0 +1,118 @@
+/* Tag selectors */
+
+body {
+  background: linear-gradient(#af68ea, #6462e7);
+  background-repeat: no-repeat;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+
+a {
+  color: hsl(237, 12%, 33%);
+  text-decoration: none;
+}
+
+input {
+  display: none;
+}
+
+label {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  color: hsl(237, 12%, 33%);
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: hsl(240, 5%, 91%);
+  min-height: 30px;
+  width: 350px;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* Class selectors */
+
+.main {
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  height: 510px;
+  margin: 130px auto;
+  width: 920px;
+  position: relative;
+}
+
+.left-part {
+  background-image: url(images/bg-pattern-desktop.svg);
+  background-position: -585px -300px;
+  background-repeat: no-repeat;
+  flex: 1;
+  overflow: hidden;
+}
+
+.illustration {
+  position: relative;
+  left: -93px;
+  top: 70px;
+  overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  left: -93px;
+  top: 200px;
+  overflow: hidden;
+}
+
+.right-part {
+  flex: 1;
+  margin-top: 70px;
+}
+
+.questions {
+  position: relative;
+}
+
+.arrows {
+  float: right;
+  margin-right: 120px;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+}
+
+.arrows:before,.arrows:after {
+  content: '';
+  display: block;
+  transition: 0.3s;
+}
+
+.arrows:after {
+  transform: rotate(180deg);
+}
+
+.answers {
+  color: hsl(240, 6%, 50%);
+  display: none;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.5s;
+  width: 350px;
+}
+
+input:checked + .answers {
+  display: block;
+}
+
+input:checked + label {
+  font-weight: bold;
+}
+
+input:checked + label .arrows:before {
+  transform: rotate(180deg);
+}
+
+input:checked + label .arrows:after {
+  transform: rotate(0deg);
+}
