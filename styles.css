@@ -17,18 +17,30 @@ input {
   display: none;
 }
 
-label {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  color: hsl(237, 12%, 33%);
+details {
   border-bottom: solid;
   border-bottom-width: 1px;
   border-bottom-color: hsl(240, 5%, 91%);
-  min-height: 30px;
-  width: 350px;
+  cursor: pointer;
+  color: hsl(237, 12%, 33%);
+  display: flex;
   font-size: 15px;
+  list-style: none;
   margin-top: 20px;
+  padding-bottom:15px;
+  min-height: 30px;
+  position: relative;
+  width: 350px;
+  color: hsl(240, 6%, 50%);
+  transition: 0.5s;
+  font-size: 12px;
+}
+
+summary {
+  color: black;
+  font-size: 15px;
+  list-style: none;
+  margin-bottom: 15px;
 }
 
 /* Class selectors */
@@ -67,52 +79,64 @@ label {
 
 .right-part {
   flex: 1;
-  margin-top: 70px;
 }
 
 .questions {
   position: relative;
 }
 
-.arrows {
+summary::before {
+  content: url(images/icon-arrow-down.svg);
   float: right;
-  margin-right: 120px;
   position: absolute;
   right: 10px;
-  top: 2px;
+  top: -4px;
 }
 
-.arrows:before,.arrows:after {
-  content: '';
-  display: block;
-  transition: 0.3s;
-}
-
-.arrows:after {
-  transform: rotate(180deg);
-}
-
-.answers {
-  color: hsl(240, 6%, 50%);
-  display: none;
-  height: 50px;
-  overflow: hidden;
-  transition: 0.5s;
-  width: 350px;
-}
-
-input:checked + .answers {
-  display: block;
-}
-
-input:checked + label {
+details[open] summary {
   font-weight: bold;
 }
 
-input:checked + label .arrows:before {
+details[open] summary::before {
   transform: rotate(180deg);
 }
 
-input:checked + label .arrows:after {
-  transform: rotate(0deg);
+/* Media selectors */
+
+@media all and (max-width:400px) {
+  body {
+    width: 375px;
+  }
+  .main {
+    flex-direction: column;
+    height: 700px;
+    margin: 145px auto;
+    width: 325px;
+  }
+  .left-part {
+    background-image: url(images/bg-pattern-mobile.svg);
+    background-position: 40px 0;
+    flex: none;
+    height: 140px;
+  }
+  .illustration {
+    content: url(images/illustration-woman-online-mobile.svg);
+    overflow: visible;
+    position: absolute;
+    left: 13px;
+    top: -108px;
+  }
+  .box {
+    display: none;
+  }
+  .right-part {
+    flex: none;
+  }
+  h1 {
+    text-align: center;
+  }
+  details {
+    margin: 20px auto 0 auto;
+    width: 305px;
+  }
 }
